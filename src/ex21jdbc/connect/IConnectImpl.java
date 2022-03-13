@@ -1,10 +1,12 @@
 package ex21jdbc.connect;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Scanner;
 
 /*
@@ -14,8 +16,11 @@ import java.util.Scanner;
 public class IConnectImpl implements IConnect
 {
 	public Connection con;
+	public Statement stmt;//정적 쿼리 실행을 위한 객체
 	public PreparedStatement psmt; //동적쿼리 실행을 위한 객체
+	public CallableStatement csmt; //저장 프로시져 실행을 위한 객체
 	public ResultSet rs;
+	
 	//기본(디폴트)생성자
 	public IConnectImpl() {
 		System.out.println("IConnectImpl 기본생성자 호출");
